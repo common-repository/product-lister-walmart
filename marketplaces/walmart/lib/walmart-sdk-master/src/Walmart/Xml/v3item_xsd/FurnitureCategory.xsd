@@ -1,0 +1,1351 @@
+<?xml version="1.0" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://walmart.com/content" version="3.0" xmlns:wm="http://walmart.com/content" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="ContentCommons.xsd"/>
+  <xsd:complexType name="FurnitureCategory">
+    <xsd:choice maxOccurs="1" minOccurs="0">
+      <xsd:element name="Furniture" type="wm:Furniture"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="Furniture">
+    <xsd:all>
+      <xsd:element maxOccurs="1" minOccurs="1" name="shortDescription">
+        <xsd:annotation>
+          <xsd:documentation>Overview of the key selling points of the item, marketing content, and highlights in paragraph form. For SEO purposes, repeat the product name and relevant keywords here.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Required"/>
+            <wm:displayName>Description</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>8000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="keyFeatures" type="wm:KeyFeatures">
+        <xsd:annotation>
+          <xsd:documentation>Key features will appear as bulleted text on the item page and in search results. Key features help the user understand the benefits of the product with a simple and clean format. We highly recommended using three or more key features.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Key Features</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>9000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="unitsPerConsumerUnit">
+        <xsd:annotation>
+          <xsd:documentation>The number of units in the item being offered for sale, such that each unit is packaged for individual sale and has a scannable bar code. Examples of Package Count: (1) A product containing a single package of 3 T-shirts has a &quot;Package Count&quot; of 1. (2) A product containing 2 packages each with 3 T-shirts has a &quot;Package Count&quot; of 2. (3) A product containing 2 packages of 36 count diapers has a &quot;Package Count&quot; of 2.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Package Count</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>10000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="brand">
+        <xsd:annotation>
+          <xsd:documentation>Name, term, design or other feature that distinguishes one seller's product from those of others. This can be the name of the company associated with the product, but not always. If item does not have a brand, use &quot;Unbranded&quot;.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Brand</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>11000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="manufacturer">
+        <xsd:annotation>
+          <xsd:documentation>Manufacturer is the maker of the product. This is the name of the company that produces the product, not necessarily the brand name of the item. For some products, the manufacturer and the brand may be the same.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Manufacturer</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>12000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="modelNumber">
+        <xsd:annotation>
+          <xsd:documentation>Model numbers allow manufacturers to keep track of each hardware device and identify or replace the proper part when needed. Model numbers are often found on the bottom, back, or side of a product. Having this information allows customers to search for items on the site and informs product matching.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Model Number</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>13000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="manufacturerPartNumber">
+        <xsd:annotation>
+          <xsd:documentation>MPN uniquely identifies the product to its manufacturer. For many products this will be identical to the model number. Some manufacturers distinguish part number from model number. Having this information allows customers to search for items on the site and informs product matching.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Manufacturer Part Number</wm:displayName>
+            <wm:group>Basic</wm:group>
+            <wm:rank>14000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mainImageUrl">
+        <xsd:annotation>
+          <xsd:documentation>Main image of the item. Image URL must end in the file name. Image URL must be static and have no redirections. Preferred file type: JPEG Accepted file types: JPG, PNG, GIF, BMP Recommended image resolution: 3000 x 3000 pixels at 300 ppi. Minimum image size requirements: Zoom capability: 2000 x 2000 pixels at 300 ppi. Non-zoom minimum: 500 x 500 pixels at 72 ppi. Maximum file size: 2 MB.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Main Image URL</wm:displayName>
+            <wm:group>Images</wm:group>
+            <wm:rank>16000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:anyURI"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="productSecondaryImageURL" type="wm:ProductSecondaryImageURL">
+        <xsd:annotation>
+          <xsd:documentation>Secondary images of the item. Image URL must end in the file name. Image URL must be static and have no redirections. Preferred file type: JPEG Accepted file types: JPG, PNG, GIF, BMP Recommended image resolution: 3000 x 3000 pixels at 300 ppi. Minimum image size requirements: Zoom capability: 2000 x 2000 pixels at 300 ppi. Non-zoom minimum: 500 x 500 pixels at 72 ppi. Maximum file size: 2 MB.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Additional Image URL</wm:displayName>
+            <wm:group>Images</wm:group>
+            <wm:rank>17000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="color" type="wm:Color">
+        <xsd:annotation>
+          <xsd:documentation>Color as described by the manufacturer.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Color</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>19000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="colorCategory">
+        <xsd:annotation>
+          <xsd:documentation>Select the color from a short list that best describes the general color of the item. This improves searchability as it allows customers to view items by color from the left navigation when they perform a search.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Color Category</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>20000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="colorCategoryValue">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="Beige"/>
+                  <xsd:enumeration value="Black"/>
+                  <xsd:enumeration value="Blue"/>
+                  <xsd:enumeration value="Bronze"/>
+                  <xsd:enumeration value="Brown"/>
+                  <xsd:enumeration value="Clear"/>
+                  <xsd:enumeration value="Gold"/>
+                  <xsd:enumeration value="Gray"/>
+                  <xsd:enumeration value="Green"/>
+                  <xsd:enumeration value="Multi-color"/>
+                  <xsd:enumeration value="Off-White"/>
+                  <xsd:enumeration value="Orange"/>
+                  <xsd:enumeration value="Pink"/>
+                  <xsd:enumeration value="Purple"/>
+                  <xsd:enumeration value="Red"/>
+                  <xsd:enumeration value="Silver"/>
+                  <xsd:enumeration value="White"/>
+                  <xsd:enumeration value="Yellow"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="finish">
+        <xsd:annotation>
+          <xsd:documentation>Terms describing the overall external treatment applied to the item. Typically finishes give a distinct appearance, texture or additional performance to the item. This attribute is used in a wide variety products and materials including wood, metal and fabric.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Finish</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>21000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="material" type="wm:Material">
+        <xsd:annotation>
+          <xsd:documentation>The main material(s) that a product is made of. This does not need to be an exhaustive list, but should contain the predominant or functionally important material/materials. Fabric material specifics should be entered using the &quot;Fabric Content&quot; attribute.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Material</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>22000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="pattern" type="wm:Pattern">
+        <xsd:annotation>
+          <xsd:documentation>Decorative design or visual ornamentation, often with a thematic, recurring motif.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Pattern</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>23000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="gender">
+        <xsd:annotation>
+          <xsd:documentation>Indicate whether this item is meant for a particular gender or meant to be gender-agnostic (unisex).</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Gender</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>24000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Male"/>
+            <xsd:enumeration value="Female"/>
+            <xsd:enumeration value="Unisex"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ageGroup">
+        <xsd:annotation>
+          <xsd:documentation>General grouping of ages into commonly used demographic labels.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Age Group</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>25000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="ageGroupValue">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="Infant"/>
+                  <xsd:enumeration value="Toddler"/>
+                  <xsd:enumeration value="Child"/>
+                  <xsd:enumeration value="Teen"/>
+                  <xsd:enumeration value="Adult"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="size">
+        <xsd:annotation>
+          <xsd:documentation>Overall dimensions of an item. Used only for products that do not already have a more specific 'x size' attribute, such as ring size or clothing size. </xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Size</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>26000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="bedSize">
+        <xsd:annotation>
+          <xsd:documentation>Denotes the size of a bed, a bed's parts, mattress or bed linens in standard sizes.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Bed Size</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>27000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="homeDecorStyle">
+        <xsd:annotation>
+          <xsd:documentation>Describes home furnishings and decorations according to various themes, styles and tastes.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Home Decor Style</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>28000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="seatingCapacity">
+        <xsd:annotation>
+          <xsd:documentation>The number of people that can be accommodated by the available seats of an item.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Seating Capacity</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>29000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="numberOfDrawers">
+        <xsd:annotation>
+          <xsd:documentation>The number of drawers included the furniture or storage unit.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Number of Drawers</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>30000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="numberOfShelves">
+        <xsd:annotation>
+          <xsd:documentation>The number of shelves included in the furniture or storage unit.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Number of Shelves</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>31000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="collection">
+        <xsd:annotation>
+          <xsd:documentation>A collection is a particular group of items that have the same visual style, made by the same brand.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Collection</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>32000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="theme" type="wm:Theme">
+        <xsd:annotation>
+          <xsd:documentation>A dominant idea, meaning, or setting applied to an item. Used in a wide range of products including decorative objects, clothing, toys, and furniture. Can be an important selection criteria for consumers who want to achieve a particular ambiance for room décor or for a special occasion.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Theme</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>33000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="shape">
+        <xsd:annotation>
+          <xsd:documentation>Physical shape of the item. Used in a wide variety of products including rugs, toys and large appliances.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Shape</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>34000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="bedStyle">
+        <xsd:annotation>
+          <xsd:documentation>Describes the bed's shape and appearance according to its design features.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Bed Style</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>35000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mountType" type="wm:MountType">
+        <xsd:annotation>
+          <xsd:documentation>How the item is attached. Used for products such as shelving and fixture hardware.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Mount Type</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>36000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="count">
+        <xsd:annotation>
+          <xsd:documentation>The total number of items included in the package or box. Examples: (1) A product that contains a single package of 3 T-shirts has a &quot;Count&quot; of 3. (2) A product that contains two packages of 36 count diapers has a &quot;Count&quot; of 72. (3) A single container of vitamins with 200 pills has a &quot;Count&quot; of 200.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Count</wm:displayName>
+            <wm:group>Discoverability</wm:group>
+            <wm:rank>37000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="assembledProductLength">
+        <xsd:annotation>
+          <xsd:documentation>The length of the fully assembled product. NOTE: This information is shown on the item page.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Assembled Product Length</wm:displayName>
+            <wm:group>Dimensions</wm:group>
+            <wm:rank>39000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                  <xsd:enumeration value="ft"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="assembledProductWidth">
+        <xsd:annotation>
+          <xsd:documentation>The width of the fully assembled product. NOTE: This information is shown on the item page.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Assembled Product Width</wm:displayName>
+            <wm:group>Dimensions</wm:group>
+            <wm:rank>40000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                  <xsd:enumeration value="ft"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="assembledProductHeight">
+        <xsd:annotation>
+          <xsd:documentation>The height of the fully assembled product. NOTE: This information is shown on the item page.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Assembled Product Height</wm:displayName>
+            <wm:group>Dimensions</wm:group>
+            <wm:rank>41000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                  <xsd:enumeration value="ft"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="assembledProductWeight">
+        <xsd:annotation>
+          <xsd:documentation>The weight of the fully assembled product. NOTE: This information is shown on the item page.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Assembled Product Weight</wm:displayName>
+            <wm:group>Dimensions</wm:group>
+            <wm:rank>42000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="lb"/>
+                  <xsd:enumeration value="oz"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isPrivateLabelOrUnbranded">
+        <xsd:annotation>
+          <xsd:documentation>Products with brand names solely owned and registered by Walmart.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Private Label</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>49500</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="exclusiveBrandsIndicator">
+        <xsd:annotation>
+          <xsd:documentation>Products with brand names sold exclusively at Walmart. This includes derivative brands of national brands.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Exclusive Brand</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>49600</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isProp65WarningRequired">
+        <xsd:annotation>
+          <xsd:documentation>Selecting &quot;Y&quot; indicates the product requires California's Proposition 65 special warning. Proposition 65 entitles California consumers to special warnings for products that contain chemicals known to the state of California to cause cancer and birth defects or other reproductive harm if certain criteria are met (such as quantity of chemical contained in the product). See the portions of the California Health and Safety Code related to Proposition 65 for more information.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Prop 65 Warning Required</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>50000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="prop65WarningText">
+        <xsd:annotation>
+          <xsd:documentation>This is a particular statement legally required by the State of California for certain products to warn consumers about potential health dangers. See the portions of the California Health and Safety Code related to Proposition 65 to see what products require labels and to verify the text of your warning label.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="isProp65WarningRequired" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Prop 65 Warning Text</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>51000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="smallPartsWarnings">
+        <xsd:annotation>
+          <xsd:documentation>To determine if any choking warnings are applicable, check current product packaging for choking warning message(s). Please indicate the warning number (0-6). 0 - No warning applicable; 1 - Choking hazard is a small ball; 2 - Choking hazard contains small ball; 3 - Choking hazard contains small parts; 4 - Choking hazard balloon; 5 - Choking hazard is a marble; 6 - Choking hazard contains a marble.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Small Parts Warning Code</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>52000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="1" name="smallPartsWarning">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:integer">
+                  <xsd:totalDigits value="1"/>
+                  <xsd:enumeration value="0"/>
+                  <xsd:enumeration value="1"/>
+                  <xsd:enumeration value="2"/>
+                  <xsd:enumeration value="3"/>
+                  <xsd:enumeration value="4"/>
+                  <xsd:enumeration value="5"/>
+                  <xsd:enumeration value="6"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="hasBatteries">
+        <xsd:annotation>
+          <xsd:documentation>Mark &quot;Y&quot; if batteries are included with this product. NOTE: This includes both separate batteries (e.g. some toys) and integrated rechargeable batteries (e.g. some electronics)</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Contains Batteries</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>53000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="batteryTechnologyType">
+        <xsd:annotation>
+          <xsd:documentation>Please select the Battery Technology Type from the list provided. NOTE: If battery type is lead acid, lead acid (nonspillable), lithium ion, or lithium metal, the item requires a hazardous materials risk assessment via WERCS.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="hasBatteries" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Contained Battery Type</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>54000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Does Not Contain a Battery"/>
+            <xsd:enumeration value="Alkaline"/>
+            <xsd:enumeration value="Carbon Zinc"/>
+            <xsd:enumeration value="Lead Acid"/>
+            <xsd:enumeration value="Lead Acid (Nonspillable)"/>
+            <xsd:enumeration value="Lithium Primary (Lithium Metal)"/>
+            <xsd:enumeration value="Lithium Ion"/>
+            <xsd:enumeration value="Magnesium"/>
+            <xsd:enumeration value="Mercury"/>
+            <xsd:enumeration value="Nickel Cadmium"/>
+            <xsd:enumeration value="Nickel Metal Hydride"/>
+            <xsd:enumeration value="Silver"/>
+            <xsd:enumeration value="Thermal"/>
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Multiple Types"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="requiresTextileActLabeling">
+        <xsd:annotation>
+          <xsd:documentation>Select &quot;Y&quot; if your item contains wool or is one of the following: clothing (except for hats and shoes), handkerchiefs, scarves, bedding (including sheets, covers, blankets, comforters, pillows, pillowcases, quilts, bedspreads and pads (but not outer coverings for mattresses or box springs)), curtains and casements, draperies, tablecloths, napkins, doilies, floor coverings (rugs, carpets and mats), towels, washcloths, dishcloths, ironing board covers and pads, umbrellas, parasols, bats or batting, flags with heading or that are bigger than 216 square inches, cushions, all fibers, yarns and fabrics (but not packaging ribbons), furniture slip covers and other furniture covers, afghans and throws, sleeping bags, antimacassars (doilies), hammocks, dresser and other furniture scarves. For further information on these requirements, refer to the labeling requirements of the Textile Act. </xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Requires Textile Act Labeling</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>55000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="countryOfOriginTextiles">
+        <xsd:annotation>
+          <xsd:documentation>Use “Made in U.S.A. and Imported” to indicate manufacture in the U.S. from imported materials, or part processing in the U.S. and part in a foreign country. Use “Made in U.S.A. or Imported” to reflect that some units of an item originate from a domestic source and others from a foreign source. Use “Made in U.S.A.” only if all units were made completely in the U.S. using materials also made in the U.S. Use &quot;Imported&quot; if units are completely imported.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="requiresTextileActLabeling" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Country of Origin - Textiles</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>56000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="USA"/>
+            <xsd:enumeration value="Imported"/>
+            <xsd:enumeration value="USA and Imported"/>
+            <xsd:enumeration value="USA or Imported"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="compositeWoodCertificationCode">
+        <xsd:annotation>
+          <xsd:documentation>Indicates if any portion of the item contains any of the following types of composite wood: hardwood plywood veneer core, hardwood plywood composite core, particleboard, or medium density fiber board (MDF). Enter the code corresponding to the highest formaldehyde emission level on any portion of the item. Code Definitions: 1 - Does not contain composite wood; 7 - Product is not CARB compliant and cannot be sold in California; 8 - Product is CARB compliant and can be sold in California.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Composite Wood Certification Code</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>57000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="1"/>
+            <xsd:enumeration value="1"/>
+            <xsd:enumeration value="7"/>
+            <xsd:enumeration value="8"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="hasFuelContainer">
+        <xsd:annotation>
+          <xsd:documentation>Denotes any item with an empty container that may be filled with fluids, such as fuel, CO2, propane, etc.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Has Fuel Container</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>58000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="hasWarranty">
+        <xsd:annotation>
+          <xsd:documentation>Y indicates the item comes with a warranty. If an item has a warranty, then enter EITHER the warranty URL or the warranty text in the appropriate field.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Has Warranty</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>59000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="warrantyURL">
+        <xsd:annotation>
+          <xsd:documentation>If you indicated that your item has a warranty, provide either the Warranty URL or Warranty Text. The Warranty URL is the web location of the image, PDF, or link to the manufacturer's warranty page, showing the warranty and its terms, including the duration of the warranty. URLs must begin with http:// or https:// NOTE: Please remember to update the link and/or text of the warranty as the warranty changes. If supplying an image, provide the final destination image URL (no-redirects) that is publicly accessible (no username/password required) and ends in a proper image extension. Recommended file type: JPEG Accepted file types: JPG, PNG, GIF, BMP Maximum file size: 2 GB. If the Ingredients have been included in another image, you may repeat the URL here. </xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Warranty URL</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>60000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:anyURI"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="warrantyText">
+        <xsd:annotation>
+          <xsd:documentation>If you marked Y for &quot;Has Warranty&quot; provide the Warranty URL or Warranty Text (the full text of the warranty terms, including what is covered by the warranty and the duration of the warranty). NOTE: please remember to update the text of your warranty as your warranty changes.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="warrantyURL" value="null"/>
+              <wm:conditionalAttribute name="hasWarranty" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Warranty Text</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>61000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="hasStateRestrictions">
+        <xsd:annotation>
+          <xsd:documentation>Select Y if your product needs to be prohibited from sale in any State or Zip Codes. Please note that it is your obligation to understand and inform Walmart of any laws, regulations, ordinances, etc. that would prohibit or restrict your product from being sold in a specific State or Zip Code. Examples: To comply with California energy efficiency requirements, certain lamps sold to California customers must include an energy efficient CFL or LED bulb with the product; if the product is not sold with an energy efficient light bulb, then the product must be restricted for sale in California. Additional State restrictions may be required if the products do not meet California or Colorado’s water efficiency requirements for products such as faucets and shower heads.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Has State Restrictions</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>62000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="stateRestrictions" type="wm:StateRestrictions">
+        <xsd:annotation>
+          <xsd:documentation>Group of attributes to capture information when there are restrictions (legal or supplier discretion) prohibiting an item's sale.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="hasStateRestrictions" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>State Restrictions</wm:displayName>
+            <wm:group>Compliance</wm:group>
+            <wm:rank>63000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isAssemblyRequired">
+        <xsd:annotation>
+          <xsd:documentation>Is product unassembled and must be put together before use?</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Is Assembly Required</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>68000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="assemblyInstructions">
+        <xsd:annotation>
+          <xsd:documentation>Provide a URL to an image or PDF asset showing assembly instructions for items requiring assembly. URLs must be static and have no query parameters. URLs must begin with http:// or https:// and should end in in the file name.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="isAssemblyRequired" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Assembly Instructions</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>69000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:anyURI"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="fabricContent" type="wm:FabricContent">
+        <xsd:annotation>
+          <xsd:documentation>Material makeup of the item.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Fabric Content</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>70000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="fabricCareInstructions" type="wm:FabricCareInstructions">
+        <xsd:annotation>
+          <xsd:documentation>Describes how the fabric should be cleaned. Enter details of the fabric care label found on the item. (For garments, typically located inside on the top of the back or the lower left side.)</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Fabric Care Instructions</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>73000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="recommendedUses" type="wm:RecommendedUses">
+        <xsd:annotation>
+          <xsd:documentation>Further clarification of what the item may be used for. This improves searchability when customers search for general terms like &quot;birthday party&quot; that do not include the names of specific items.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Recommended Use</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>74000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="recommendedRooms" type="wm:RecommendedRooms">
+        <xsd:annotation>
+          <xsd:documentation>The rooms where the item is likely or recommended to be used.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Recommended Rooms</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>75000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="recommendedLocations" type="wm:RecommendedLocations">
+        <xsd:annotation>
+          <xsd:documentation>The primary location recommended for the item's use.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Recommended"/>
+            <wm:displayName>Recommended Location</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>76000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mattressFirmness">
+        <xsd:annotation>
+          <xsd:documentation>The mattresses level of firmness.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Mattress Firmness</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>77000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mattressThickness">
+        <xsd:annotation>
+          <xsd:documentation>The mattresses thickness/height in inches.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Mattress Thickness</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>78000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="pumpIncluded">
+        <xsd:annotation>
+          <xsd:documentation>Is a pump included with the mattress?</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Pump Included</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>79000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="fillMaterial" type="wm:FillMaterial">
+        <xsd:annotation>
+          <xsd:documentation>The material used to stuff the item (in a cushion or plush toy, for example).</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Fill Material</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>80000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="frameMaterial" type="wm:FrameMaterial">
+        <xsd:annotation>
+          <xsd:documentation>The material used in the item's frame if different than its main material makeup, which is described using the &quot;Material&quot; attribute.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Frame Material</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>81000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="seatMaterial">
+        <xsd:annotation>
+          <xsd:documentation>The seat material if different than the item's main material makeup, which is described using the &quot;Material&quot; attribute.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Seat Material</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>82000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="seatHeight">
+        <xsd:annotation>
+          <xsd:documentation>The height from the floor to the top of the seat, in inches.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Seat Height</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>83000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="seatBackHeight">
+        <xsd:annotation>
+          <xsd:documentation>The seat back height from the base of the seat to the top of the back, in inches.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Seat Back Height</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>84000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element maxOccurs="1" minOccurs="1" name="measure">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="unit">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="in"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isAntique">
+        <xsd:annotation>
+          <xsd:documentation>Is the item a valuable collectable because of its age?</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Antique</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>85000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isFoldable">
+        <xsd:annotation>
+          <xsd:documentation>Indicates that an item can be folded.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Foldable</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>86000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isInflatable">
+        <xsd:annotation>
+          <xsd:documentation>Indicates that an item can be inflated.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Inflatable</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>87000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isWheeled">
+        <xsd:annotation>
+          <xsd:documentation>Indicates that an item has wheels and can be rolled.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Wheeled</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>88000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isIndustrial">
+        <xsd:annotation>
+          <xsd:documentation>Indicates that an item can be used in an industrial setting or has an industrial application.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Industrial</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>89000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="isPowered">
+        <xsd:annotation>
+          <xsd:documentation>Y indicates that an item uses electricity, requiring a power cord or batteries to operate. Useful for items that have non-powered equivalents (e.g. toothbrushes).</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Is Powered</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>90000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Yes"/>
+            <xsd:enumeration value="No"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="powerType">
+        <xsd:annotation>
+          <xsd:documentation>Provides information on the exact type of power used by the item.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Conditionally Required"/>
+            <wm:conditionalAttributes>
+              <wm:conditionalAttribute name="isPowered" value="Yes"/>
+            </wm:conditionalAttributes>
+            <wm:displayName>Power Type</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>91000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="character" type="wm:Character">
+        <xsd:annotation>
+          <xsd:documentation>A person or entity portrayed in print or visual media. A character might be a fictional personality or an actual living person.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Character</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>92000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="globalBrandLicense" type="wm:BrandLicense">
+        <xsd:annotation>
+          <xsd:documentation>A brand name that is not owned by the product brand, but is licensed for the particular product. (Often character and media tie-ins and promotions.)</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Brand License</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>93000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="sportsLeague" type="wm:SportsLeague">
+        <xsd:annotation>
+          <xsd:documentation>If your item has any association with a specific sports league, enter the league name. Abbreviations are fine. NOTE: This attribute flags an item for inclusion in the online fan shop.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Sports League</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>94000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="sportsTeam" type="wm:SportsTeam">
+        <xsd:annotation>
+          <xsd:documentation>If your item has any association with a specific sports team, enter the team name. NOTE: This attribute flags an item for inclusion in the online fan shop.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Sports Team</wm:displayName>
+            <wm:group>Additional Category Attributes</wm:group>
+            <wm:rank>95000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="athlete" type="wm:Athlete">
+        <xsd:annotation>
+          <xsd:documentation>A well-known athlete associated with a product, if applicable. This is used to group items in Fan Shop, not to describe a line of clothing.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Athlete</wm:displayName>
+            <wm:group>Nice to Have</wm:group>
+            <wm:rank>96000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="autographedBy">
+        <xsd:annotation>
+          <xsd:documentation>The full name of the person who has autographed this copy.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Autographed by</wm:displayName>
+            <wm:group>Nice to Have</wm:group>
+            <wm:rank>97000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="features" type="wm:AdditionalFeatures">
+        <xsd:annotation>
+          <xsd:documentation>List notable features of the item.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Additional Features</wm:displayName>
+            <wm:group>Nice to Have</wm:group>
+            <wm:rank>102000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="keywords">
+        <xsd:annotation>
+          <xsd:documentation>Words that people would use to search for this item. Keywords can include synonyms and related terms.</xsd:documentation>
+          <xsd:appinfo>
+            <wm:requiredLevel value="Optional"/>
+            <wm:displayName>Keywords</wm:displayName>
+            <wm:group>Nice to Have</wm:group>
+            <wm:rank>103000</wm:rank>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:all>
+  </xsd:complexType>
+</xsd:schema>

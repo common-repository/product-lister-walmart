@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<MPItemFeed xmlns="http://walmart.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://walmart.com/ MPItem.xsd">
+  <MPItemFeedHeader>
+    <version>2.1</version>
+    <requestId>1496297706</requestId>
+    <requestBatchId>1496297706</requestBatchId>
+  </MPItemFeedHeader>
+  <MPItem>
+    <sku>RO-BCQS-GV11</sku>
+    <Product>
+      <productName>&lt;![CDATA[Rowkin Bit Stereo Bluetooth Headphone,True Wireless Earbuds w/Mic.Smallest Cordless Hands-Free In-Ear Earphones Headset with Portable Charger &amp;amp; Noise Reduction for Running &amp;amp; iPhone]]&gt;</productName>
+      <longDescription>&lt;![CDATA[&lt;ul class="a-vertical a-spacing-none"&gt;
+&lt;li&gt;Truly wireless headphones.&lt;/li&gt;
+&lt;/ul&gt;]]&gt;</longDescription>
+      <shelfDescription>&lt;![CDATA[&lt;div&gt;&lt;p&gt;Rowkin Bit Stereo Bluetooth Headphones, True Wireless Earbuds w/ Mic. Smallest Cordless Hands-Free In-Ear Earphones Headsets with Portable Charger &amp; Noise Reduction for Running &amp; iPhone&lt;/p&gt;&lt;/div&gt;]]&gt;</shelfDescription>
+      <shortDescription>&lt;![CDATA[&lt;div&gt;&lt;/div&gt;]]&gt;</shortDescription>
+      <mainImage>
+        <mainImageUrl>https://cdn.shopify.com/s/files/1/1546/4597/products/rowkin-bit-with-charger-gold.png?v=1495496006</mainImageUrl>
+        <altText>Rowkin Bit Stereo Bluetooth Headphones, True Wireless Earbuds w/ Mic. Smallest Cordless Hands-Free In-Ear Earphones Headsets with Portable Charger &amp;a</altText>
+      </mainImage>
+      <additionalAssets/>
+      <productIdentifiers>
+        <productIdentifier>
+          <productIdType>UPC</productIdType>
+          <productId>083351924850</productId>
+        </productIdentifier>
+      </productIdentifiers>
+      <productTaxCode>2043540</productTaxCode>
+      <Electronics>
+        <variantAttributeNames>
+          <variantAttributeName>color</variantAttributeName>
+        </variantAttributeNames>
+        <variantGroupId>9258245572</variantGroupId>
+        <brand>Rowkin</brand>
+        <color>
+          <colorValue>24K Rose Gold</colorValue>
+        </color>
+        <ElectronicsAccessories/>
+      </Electronics>
+    </Product>
+    <price>
+      <currency>USD</currency>
+      <amount>109.9900</amount>
+    </price>
+    <shippingWeight>
+      <value>0.57</value>
+      <unit>LB</unit>
+    </shippingWeight>
+  </MPItem>
+</MPItemFeed>
